@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ets la reference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+
+    <h1><a href="index.html" style="display:block">
+        <svg viewBox="0 0 272 64" width="220" height="40" role="img" aria-label="Emma Business">
+          <rect width="64" height="64" rx="14" fill="#12403c" />
+          <rect x="19" y="16" width="7" height="32" rx="1.5" fill="#f6f1e7" />
+          <rect x="19" y="16" width="26" height="7" rx="1.5" fill="#f6f1e7" />
+          <rect x="19" y="28.5" width="20" height="7" rx="1.5" fill="#c5601f" />
+          <rect x="19" y="41" width="26" height="7" rx="1.5" fill="#f6f1e7" />
+          <text x="80" y="42" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="27" fill="#12403c">
+            <tspan font-weight="700">ETS</tspan>
+            <tspan font-weight="400" dx="7">LA REFERENCE</tspan>
+          </text>
+        </svg>
+      </a></h1>
+
+    <button id="cartBtn" onclick="openCart()">Panier <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <div class="filters">
+      <input id="searchInput" placeholder="Rechercher un produit..." oninput="debouncedLoad()">
+      <select id="categorySelect" onchange="loadProducts()">
+        <option value="">Toutes les catégories</option>
+      </select>
+    </div>
+
+    <div id="grid" class="grid"></div>
+    <div id="emptyState" class="empty hidden">Aucun produit trouvé.</div>
+  </main>
+
+  <div id="overlay" onclick="closeCart()"></div>
+  <div id="cartDrawer">
+    <div class="drawer-header">
+      <strong>Mon panier</strong>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-footer" id="cartFooter">
+      <div class="total"><span>Total</span><span id="cartTotal">0.00 FCFA</span></div>
+      <input id="guestName" placeholder="Votre nom">
+      <input id="guestPhone" type="tel" placeholder="votre numéro de téléphone">
+      <input id="guestAddress" placeholder="ville/quartier/rue">
+      <input id="guestEmail" placeholder="Votre email" type="email">
+      <button id="checkoutBtn" onclick="checkout()">Valider la commande</button>
+      <div id="cartMsg" class="msg"></div>
+    </div>
+  </div>
+
+  <footer class="sf">
+    <div class="sf-inner">
+      <div class="sf-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#f6f1e7" fill-opacity="0.12" />
+          <rect x="19" y="16" width="7" height="32" rx="1.5" fill="#f6f1e7" />
+          <rect x="19" y="16" width="26" height="7" rx="1.5" fill="#f6f1e7" />
+          <rect x="19" y="28.5" width="20" height="7" rx="1.5" fill="#c5601f" />
+          <rect x="19" y="41" width="26" height="7" rx="1.5" fill="#f6f1e7" />
+        </svg>
+        <div>
+          <strong>ETS LA REFERENCE</strong>
+          <p>Des produits choisis avec soin, livrés chez vous.</p>
+        </div>
+      </div>
+      <div>
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voir le catalogue</a>
+          </li>
+          <li><a href="#" onclick="openCart(); return false;">Mon panier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:bioems919@gmail.com">bioems919@gmail.com</a></li>
+          <li>+235 85 50 36 52</li>
+          <li>Tchad-Ndjamena-Boutalbagar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sf-bottom">© <span id="sfYear"></span> ETS LA REFERENCE. Tous droits réservés.</div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+
+</html>
